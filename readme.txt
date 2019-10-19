@@ -1,4 +1,4 @@
-##Setup:
+## Setup:
 - The videos for training are available under /datasets/balloons_vs_sky_basic/train
 - The video for testing is available under /datasets/balloons_vs_sky_basic/testing
 - Project should be run from the projects main directory
