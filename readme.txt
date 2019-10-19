@@ -1,13 +1,4 @@
-# Autonomous drone using ORBSLAM2 on the Jetson Nano
-Run ORBSLAM2 on the Jetson Nano, using recorded rosbags (e.g., EUROC) or live footage from a Bebop2 Drone.
-Tested with Monocular camera in real time - https://www.youtube.com/watch?v=nSu7ru0SKbI&feature=youtu.be
-
-The first part of the repo is based on the work of Thien Nguyen (hoangthien94)
-
-## Prerequisite
-* Start with a fresh flash for Jetson Nano.
-
-## Setup:
+Setup:
 - The videos for training are available under /datasets/balloons_vs_sky_basic/train
 - The video for testing is available under /datasets/balloons_vs_sky_basic/testing
 - Project should be run from the projects main directory
