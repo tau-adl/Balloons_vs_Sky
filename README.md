@@ -1,5 +1,9 @@
 # Real Time Balloons detection in Videos Using Deep Learning
 
+Deep learning was able to produce significant breakthrough in the field of computer vision in recent years. This, along with the advances in hardware for deep learning allows for running real time object detection from video on hardware mounted on a small drone.
+
+In this project I created an environment setup for training deep neural networks and utilized it to train a neural network to detect balloons from a video. In addition, the balloons detection was optimized to run at real time on the Nvidia Jetson TX2.
+
 ## The following is required and helpful for project setup
 
 * The videos for training are available under /datasets/balloons_vs_sky_basic/train
@@ -22,20 +26,33 @@ python crop_balloons_from_video.py --input datasets/balloons_vs_sky_basic/train/
 
 * A crop is selected with the mouse left button.
 * The following keypads control the cropping:
-	'o' - Optimize the cropping region
-	's' - Choose another sky ROI
-	'd' - Start fast cropping
-	'r' - Reset the cropping region
-	'q' - Quit sky ROI
 
-	When the script is in automatic mode, balloons and sky images will be generated automatically
-	When the script is in manual mode:
+** 'o' - Optimize the cropping region
+
+** 's' - Choose another sky ROI
+
+** 'd' - Start fast cropping
+
+** 'r' - Reset the cropping region
+
+** 'q' - Quit sky ROI
+
+* When the script is in automatic mode, balloons and sky images will be generated automatically
+
+* When the script is in manual mode:
+
 		'5' - Continue to next frame
+
 		'8' - Move rectangle up
+
 		'2' - Move rectangle down
+
 		'4' - Move rectangle left
+
 		'6' - Move rectangle right
+
 		's' - Choose another sky ROI
+
 		'q' - Quit sky ROI
 
 ## HDF5 files creation
@@ -46,6 +63,11 @@ To build the HDF5 files the following command should be executed:
 python build_balloons_vs_sky.py
 ```
 
+To train a CNN on the dataset:
+python train_balloons_vs_sky.py --net <CNN architecture> --optimizer <SGD/Adam>
+
+Example:
+python train_balloons_vs_sky.py --net NanoVggNet --optimizer SGD --epochs 10 --learning_rate 1e-2
 
 
 
