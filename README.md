@@ -4,7 +4,7 @@ Deep learning was able to produce significant breakthrough in the field of compu
 
 In this project I created an environment setup for training deep neural networks and utilized it to train a neural network to detect balloons from a video. In addition, the balloons detection was optimized to run at real time on the Nvidia Jetson TX2.
 
-## The following is required and helpful for project setup
+## General description of project structure
 
 * The videos for training are available under /datasets/balloons_vs_sky_basic/train
 * The video for testing is available under /datasets/balloons_vs_sky_basic/testing
@@ -17,14 +17,18 @@ In this project I created an environment setup for training deep neural networks
 
 To generate images from videos for training the following command should be executed:
 
-```
-python crop_balloons_from_video.py --input <path to video file>
+*python crop_balloons_from_video.py --input <path to video file>*
 
-Exmaple:
+Example:
+
+```
 python crop_balloons_from_video.py --input datasets/balloons_vs_sky_basic/train/20190320_162139.mp4
 ```
 
+Elaboration on how to use the cropping tool:
+
 * A crop is selected with the mouse left button.
+
 * The following keypads control the cropping:
 
   * 'o' - Optimize the cropping region
@@ -59,106 +63,76 @@ python crop_balloons_from_video.py --input datasets/balloons_vs_sky_basic/train/
 
 To build the HDF5 files the following command should be executed:
 
-```
-python build_balloons_vs_sky.py
-```
+*python build_balloons_vs_sky.py*
 
-To train a CNN on the dataset:
-python train_balloons_vs_sky.py --net <CNN architecture> --optimizer <SGD/Adam>
+## Training
+
+To train a CNN on the dataset the following command should be executed:
+
+*python train_balloons_vs_sky.py --net <CNN architecture> --optimizer <SGD/Adam>*
 
 Example:
+
+```
 python train_balloons_vs_sky.py --net NanoVggNet --optimizer SGD --epochs 10 --learning_rate 1e-2
-
-
-
-
-
-
-# Real Time Balloons detection in Videos Using Deep Learning
-
-One Paragraph of project description goes here
-
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
-### Prerequisites
-
-What things you need to install the software and how to install them
-
-```
-Give examples
 ```
 
-### Installing
+## Evaluation
 
-A step by step series of examples that tell you how to get a development env running
+To evaluate a trained CNN on the dataset the following command should be executed:
 
-Say what the step will be
+*python eval_balloons_vs_sky.py – model <path to HDF5 checkpoint file>*
 
-```
-Give the example
-```
-
-And repeat
+Example:
 
 ```
-until finished
+python eval_balloons_vs_sky.py --model output/balloons_vs_sky_basic/checkpoints/NanoVggNet_balloons_vs_sky_basic_epoch_10.hdf5 
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+## Detection
 
-## Running the tests
+To run the balloons detection the following command should be executed:
 
-Explain how to run the automated tests for this system
+*python detect_balloons.py --input <path to input video file or folder of images> --model <path to HDF5 checkpoint file>*
 
-### Break down into end to end tests
-
-Explain what these tests test and why
+Example for running the detection on an input video:
 
 ```
-Give an example
+python detect_balloons.py --input datasets/balloons_vs_sky_basic/test/VID_20190320_162218.mp4 --model output/balloons_vs_sky_basic/checkpoints/NanoVggNet_balloons_vs_sky_basic_epoch_10.hdf5
 ```
 
-### And coding style tests
-
-Explain what these tests test and why
+Example for running the detection on an input folder of images:
 
 ```
-Give an example
+python detect_balloons.py --input datasets/balloons_vs_sky_basic/test/VID_20190320_162218 --model output/balloons_vs_sky_basic/checkpoints/NanoVggNet_balloons_vs_sky_basic_epoch_10.hdf5
 ```
 
-## Deployment
+## Additional scripts
 
-Add additional notes about how to deploy this on a live system
+To split a video into a folder of images the following command should be executed:
 
-## Built With
+*python split_video.py --input <path to input video file>*
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+Example:
 
-## Contributing
+```
+python split_video.py --input datasets/balloons_vs_sky/test/VID_20190320_162218.mp4
+```
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+To display the content of the HDF5 files the following command should be executed:
 
-## Versioning
+*python show_hdf5.py --path <path to a folder which contains HDF5 files>*
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+Example:
 
-## Authors
+```
+python show_hdf5.py --path datasets/balloons_vs_sky_basic/hdf5
+```
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+## Versions
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+Python 3.6.3
 
-## License
+Keras 2.2.4
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
 
