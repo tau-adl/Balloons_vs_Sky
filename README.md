@@ -17,7 +17,7 @@ In this project I created an environment setup for training deep neural networks
 
 To generate images from videos for training the following command should be executed:
 
-*python crop_balloons_from_video.py --input \\<path to video file\\>*
+*python crop_balloons_from_video.py --input \<path to video file\>*
 
 Example:
 
