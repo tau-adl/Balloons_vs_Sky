@@ -17,7 +17,7 @@ In this project I created an environment setup for training deep neural networks
 
 To generate images from videos for training the following command should be executed:
 
-*python crop_balloons_from_video.py --input \<path to video file\>*
+*python crop_balloons_from_video.py --input \\<path to video file\\>*
 
 Example:
 
@@ -69,7 +69,7 @@ To build the HDF5 files the following command should be executed:
 
 To train a CNN on the dataset the following command should be executed:
 
-*python train_balloons_vs_sky.py --net <CNN architecture> --optimizer <SGD/Adam>*
+*python train_balloons_vs_sky.py --net \<CNN architecture\> --optimizer \<SGD/Adam\>*
 
 Example:
 
@@ -81,7 +81,7 @@ python train_balloons_vs_sky.py --net NanoVggNet --optimizer SGD --epochs 10 --l
 
 To evaluate a trained CNN on the dataset the following command should be executed:
 
-*python eval_balloons_vs_sky.py – model <path to HDF5 checkpoint file>*
+*python eval_balloons_vs_sky.py – model \<path to HDF5 checkpoint file\>*
 
 Example:
 
@@ -93,7 +93,7 @@ python eval_balloons_vs_sky.py --model output/balloons_vs_sky_basic/checkpoints/
 
 To run the balloons detection the following command should be executed:
 
-*python detect_balloons.py --input <path to input video file or folder of images> --model <path to HDF5 checkpoint file>*
+*python detect_balloons.py --input \<path to input video file or folder of images\> --model \<path to HDF5 checkpoint file\>*
 
 Example for running the detection on an input video:
 
@@ -111,7 +111,7 @@ python detect_balloons.py --input datasets/balloons_vs_sky_basic/test/VID_201903
 
 To split a video into a folder of images the following command should be executed:
 
-*python split_video.py --input <path to input video file>*
+*python split_video.py --input \<path to input video file\>*
 
 Example:
 
@@ -121,7 +121,7 @@ python split_video.py --input datasets/balloons_vs_sky/test/VID_20190320_162218.
 
 To display the content of the HDF5 files the following command should be executed:
 
-*python show_hdf5.py --path <path to a folder which contains HDF5 files>*
+*python show_hdf5.py --path \<path to a folder which contains HDF5 files\>*
 
 Example:
 
