@@ -27,33 +27,33 @@ python crop_balloons_from_video.py --input datasets/balloons_vs_sky_basic/train/
 * A crop is selected with the mouse left button.
 * The following keypads control the cropping:
 
-** 'o' - Optimize the cropping region
+  * 'o' - Optimize the cropping region
 
-** 's' - Choose another sky ROI
+  * 's' - Choose another sky ROI
 
-** 'd' - Start fast cropping
+  * 'd' - Start fast cropping
 
-** 'r' - Reset the cropping region
+  * 'r' - Reset the cropping region
 
-** 'q' - Quit sky ROI
+  * 'q' - Quit sky ROI
 
 * When the script is in automatic mode, balloons and sky images will be generated automatically
 
 * When the script is in manual mode:
 
-		'5' - Continue to next frame
+  * '5' - Continue to next frame
 
-		'8' - Move rectangle up
+  * '8' - Move rectangle up
 
-		'2' - Move rectangle down
+  * '2' - Move rectangle down
 
-		'4' - Move rectangle left
+  * '4' - Move rectangle left
 
-		'6' - Move rectangle right
+  * '6' - Move rectangle right
 
-		's' - Choose another sky ROI
+  * 's' - Choose another sky ROI
 
-		'q' - Quit sky ROI
+  * 'q' - Quit sky ROI
 
 ## HDF5 files creation
 
